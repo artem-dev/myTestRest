@@ -33,24 +33,8 @@ export class AppComponent implements OnInit {
       .subscribe(
 
       data => { console.log(data.result); this.title = data.result },
-      // err => console.log(err),
-      // () => console.log('Random Quote Complete')
-      );
-    // .map((res: Response) => res.json());
-    //.subscribe(res => { console.log('people', res.json()) });
-    // .subscribe((json: Object) => {
-    //     this.title = JSON.stringify(json);
-    // });
-    // .map((response: Response) => {
-    //   return { type: 'success', payload: response.json() }; // <----
-    // .map((response:Response) => {
-    //    return Observable.of({type: "success", payload: response.json()});
-    // });
-    // .subscribe(data => {
-    // data is now an instance of type ItemsResponse, so you can do this:
-    // console.log(data.json());
-    // this.title = data.json();
-    // });
+      err => console.log(err)
+    );
   }
   ngOnInit(): void {
     this.reverseString();
@@ -75,16 +59,7 @@ export class AppComponent implements OnInit {
     // let test3 = this.test('http://localhost:8080/datasnap/rest/TServerMethods1/ReverseString/test');
     // console.log(test3);
   }
-  // tslint:disable-next-line:one-line
-  // test (url: string){
-  // const req = new HttpRequest('GET', url);
-  // this.http.request(<Request>req)
-  //   .subscribe(event => {
-  //     // if (event.type === HttpEventType.UploadProgress) {
-  //       console.log(event.total, event.loaded);
-  //     // }
-  //   });
-  // }
+  
   parseSessionID(request) {
     // if (request != null) {
     // pragma may store the Session ID value to use in future calls
@@ -117,10 +92,9 @@ export class AppComponent implements OnInit {
         // this.setSessionData(sessionId, sessionExpires);
       }
     }
-    // }
   }
   request(url: string) {
-    var req = new Request({
+    let req = new Request({
       url: url,
       method: RequestMethod.Get
     });
